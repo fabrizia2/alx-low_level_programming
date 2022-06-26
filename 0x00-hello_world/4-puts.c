@@ -1,7 +1,12 @@
 #include <stdio.h>
 
-int main(void)
+void main(void)
 {
-puts(""Programming is like building a multilingual puzzle");
-return(0);
+
+	char opt1[] = "",Programming is like building a multilingual puzzle, ";
+
+		puts(opt1);
+
+		return ();	
+
 }
