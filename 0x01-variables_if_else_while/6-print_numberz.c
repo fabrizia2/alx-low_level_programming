@@ -7,9 +7,9 @@
  */
 int main(void)
 {
-	int z = 38;
+	int z = 48;
 
-	while (z < 48)
+	while (z < 58)
 	{
 		putchar(z);
 		z++;
