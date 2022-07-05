@@ -6,31 +6,31 @@
  */
 void jack_bauer(void)
 {
-	int y = 48;
-	int a = 48, b = 48, c = 48, d = 48;
+	int y = 0;
+	int a = 0, b = 0, c = 0, d = 0;
 
 	while (y < 1440)
 	{
-		_putchar(a);
-		_putchar(b);
+		_putchar(a + '0');
+		_putchar(b + '0');
 		_putchar(':');
-		_putchar(c);
-		_putchar(d);
+		_putchar(c + '0');
+		_putchar(d + '0');
 		_putchar('\n');
 		d++;
-		if (d > 57)
+		if (d > 9)
 		{
-			d = 48;
+			d = 0;
 			c++;
 		}
-		if (c > 53)
+		if (c > 5)
 		{
-			c = 48;
+			c = 0;
 			b++;
 		}
-		if (b > 57)
+		if (b > 9)
 		{
-			b = 48;
+			b = 0;
 			a++;
 		}
 		y++;
