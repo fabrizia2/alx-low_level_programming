@@ -13,7 +13,7 @@ void _puts(char *str)
 
 	f = str;
 
-	for (r = 48; f[r]; r++)
+	for (r = 0; f[r]; r++)
 	{
 		_putchar (f[r]);
 	}
