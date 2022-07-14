@@ -11,7 +11,7 @@ char *leet(char *str)
 	int m = 0;
 	int r;
 
-	char leet[8] = {'o', 'l', '?', 'e', 'a', '?', '?', 't'};
+	char leet[8] = {'O', 'L', '?', 'E', 'A', '?', '?', 'T'};
 
 	while (str[m])
 	{
