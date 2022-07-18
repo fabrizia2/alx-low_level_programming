@@ -10,13 +10,13 @@
 
 void print_diagsums(int *a, int size)
 {
-	int k;
+	int k = 0, m = 0;
 	int sum1 = 0;
-	int sum2 = 0;
+	int sum2 = size * size;
 
-	for (k = 0; sum1 += a[k]; k++)
+	for (; k < sum2; k += size)
 	{
-		for (a += size; sum2 += a[size - k - 1]; k++)
+		for (sum1 += a[k + m]; sum2 += a[k + (size - 1) - m]; m++)
 		{
 			printf("%d\n", sum2);
 		}
