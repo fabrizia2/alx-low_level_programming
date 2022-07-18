@@ -20,8 +20,6 @@ char *_strpbrk(char *s, char *accept)
 			/*if statement*/
 			if (s[m] == accept[r])
 				return (s + m);
-			else
-				return ('\0');
 		}
 		
 	}
