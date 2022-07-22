@@ -10,16 +10,18 @@
 
 int main(int argc, char **argv)
 {
-	int multiple = atoi(argv[1]) * atoi(argv[2]);
+	int multiple = 0;
 
-	if (argc < 3)
+	if (argc == 3)
+	{
+		multiple = atoi(argv[1]) * atoi(argv[2]);
+	       printf("%d\n", multiple);
+	}
+	else
 	{
 		printf("Error\n");
 		return (1);
 	}
-	else
-		printf("%d\n", multiple);
-
 
 	return (0);
 }
