@@ -9,10 +9,11 @@
 
 char *_strdup(char *str)
 {
-	unsigned int m = 0;
+	int m = 0;
 	int dest;
 	char *pstr;
 
+	pstr = malloc(dest * sizeof(*str) + 1);
 	if (str == NULL || pstr == 0)
 	{
 		return (NULL);
