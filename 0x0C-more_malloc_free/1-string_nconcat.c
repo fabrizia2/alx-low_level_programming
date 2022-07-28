@@ -41,12 +41,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		return (NULL);
 	}
 
-	for (k = 0; k < len; k++)
+	for (k = 0; k < len; k += 1)
 	{
 		str[k] = s1[k];
 	}
 
-	for (k = 0; k < (len + n); k++)
+	for (; k < (len + n); k++)
 	{
 		str[k] = s2[k - len];
 	}
