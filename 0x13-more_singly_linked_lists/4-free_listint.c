@@ -2,12 +2,12 @@
 #include <stdlib.h>
 
 /**
- * free_list - frees a list
+ * free_listint - frees a list
  * @head: list
  * Return;
  */
 
-void free_list(list_t *head)
+void free_listint(listint_t *head)
 {
 	if (head == NULL)
 	{
@@ -15,8 +15,7 @@ void free_list(list_t *head)
 	}
 	else
 	{
-		free_list(head->next);
-		free(head->str);
+		free_listint(head->next);
 		free(head);
 	}
 }
