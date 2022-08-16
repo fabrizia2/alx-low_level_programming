@@ -25,13 +25,13 @@ size_t looped_listint_len(const listint_t *head)
 		if (Melvin == Renish)
 		{
 			Melvin = head;
-			for (uninodes = 1; Melvin != Renish; uninodes++)
+			for (; Melvin != Renish; uninodes++)
 			{
 				Melvin = Melvin->next;
 				Renish = Renish->next;
 			}
 			Melvin = Melvin->next;
-			for (uninodes = 1; Melvin != Renish; uninodes++)
+			for (; Melvin != Renish; uninodes++)
 			{
 				Melvin = Melvin->next;
 			}
@@ -54,13 +54,13 @@ size_t looped_listint_len(const listint_t *head)
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t nodes, index = 0;
+	size_t uninodes, index = 0;
 
-	nodes = looped_listint_len(head);
+	uninodes = looped_listint_len(head);
 
-	if (nodes == 0)
+	if (uninodes == 0)
 	{
-		for (; head != NULL; nodes++)
+		for (; head != NULL; uninodes++)
 		{
 			printf("[%p] %d\n", (void *)head, head->n);
 			head = head->next;
@@ -69,7 +69,7 @@ size_t print_listint_safe(const listint_t *head)
 
 	else
 	{
-		for (index = 0; index < nodes; index++)
+		for (index = 0; index < uninodes; index++)
 		{
 			printf("[%p] %d\n", (void *)head, head->n);
 			head = head->next;
@@ -78,5 +78,5 @@ size_t print_listint_safe(const listint_t *head)
 		printf("-> [%p] %d\n", (void *)head, head->n);
 	}
 
-	return (nodes);
+	return (uninodes);
 }
