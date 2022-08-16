@@ -1,76 +1,77 @@
-#include <stdio.h>
 #include "lists.h"
 
 /**
- * looped_listint_len - Counts the number of unique nodes
+ * looped_listint_count - Counts the number of unique nodes
  * in a looped listint_t linked list.
  * @head: A pointer to the head of the listint_t to check.
  *
  * Return: If the list is not looped - 0.
  * Otherwise - the number of unique nodes in the list.
- * Author: Renish Okago
  */
-
-size_t looped_listint_len(const listint_t *head)
+size_t looped_listint_count(listint_t *head)
 {
-	const listint_t *print, *loop;
+	listint_t *melvin, *renish;
 	size_t nodes = 1;
 
 	if (head == NULL || head->next == NULL)
 		return (0);
 
-	print = head->next;
-	loop = (head->next)->next;
+	melvin = head->next;
+	renish = (head->next)->next;
 
-	while (loop)
+	while (renish)
 	{
-		if (print == loop)
+		if (melvin == renish)
 		{
-			print = head;
-			while (print != loop)
+			melvin = head;
+			while (melvin != renish)
 			{
 				nodes++;
-				print = print->next;
-				loop = loop->next;
+				melvin = melvin->next;
+				renish = renish->next;
 			}
-			print = print->next;
-			while (print != loop)
+
+			melvin = melvin->next;
+			while (melvin != renish)
 			{
 				nodes++;
-				print = print->next;
+				melvin = melvin->next;
 			}
 
 			return (nodes);
-
-
 		}
 
-		print = print->next;
-		loop = (loop->next)->next;
+		melvin = melvin->next;
+		renish = (renish->next)->next;
 	}
 
 	return (0);
 }
 
 /**
- * print_listint_safe - Prints a listint_t list safely.
- * @head: A pointer to the head of the listint_t list.
+ * free_listint_safe - Frees a listint_t list safely (ie.
+ * can free lists containing loops)
+ * @h: A pointer to the address of
+ * the head of the listint_t list.
  *
- * Return: The number of nodes in the list.
+ * Return: The size of the list that was freed.
+ *
+ * Description: The function sets the head to NULL.
  */
-
-size_t print_listint_safe(const listint_t *head)
+size_t free_listint_safe(listint_t **h)
 {
-	size_t nodes, index = 0;
+	listint_t *tmp;
+	size_t nodes, index;
 
-	nodes = looped_listint_len(head);
+	nodes = looped_listint_count(*h);
 
 	if (nodes == 0)
 	{
-		for (; head != NULL; nodes++)
+		for (; h != NULL && *h != NULL; nodes++)
 		{
-			printf("[%p] %d\n", (void *)head, head->n);
-			head = head->next;
+			tmp = (*h)->next;
+			free(*h);
+			*h = tmp;
 		}
 	}
 
@@ -78,12 +79,13 @@ size_t print_listint_safe(const listint_t *head)
 	{
 		for (index = 0; index < nodes; index++)
 		{
-			printf("[%p] %d\n", (void *)head, head->n);
-			head = head->next;
+			tmp = (*h)->next;
+			free(*h);
+			*h = tmp;
 		}
-
-		printf("-> [%p] %d\n", (void *)head, head->n);
+		*h = NULL;
 	}
+	h = NULL;
 
 	return (nodes);
 }
