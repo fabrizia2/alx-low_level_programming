@@ -7,6 +7,7 @@
  * @m: another bit
  *
  * Author: Fabrizia
+ * Return: flipbits
  */
 
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
