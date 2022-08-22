@@ -28,7 +28,7 @@ int create_file(const char *filename, char *text_content)
 
 	fd = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
 	write_file = write(fd, text_content, i);
-	
+
 	if (fd == -1 || write_file == -1)
 		return (-1);
 
