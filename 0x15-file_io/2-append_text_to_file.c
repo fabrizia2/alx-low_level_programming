@@ -12,7 +12,7 @@
 
 int append_text_to_file(const char *filename, char *text_content)
 {
-	
+
 	ssize_t fd = open(filename, O_RDWR | O_CREAT | O_APPEND);
 	ssize_t i = 0, app = write(fd, text_content, i);
 
@@ -29,5 +29,5 @@ int append_text_to_file(const char *filename, char *text_content)
 	}
 
 	close(fd);
-	return (-1);
+	return (1);
 }
